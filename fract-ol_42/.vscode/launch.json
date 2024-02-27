@@ -1,0 +1,13 @@
+{
+  "version": "0.2.0",
+  "configurations": [
+    {
+      "name": "C/C++ Runner: Debug Session",
+      "type": "lldb",
+      "request": "launch",
+      "args": [],
+      "cwd": "/Users/oelharbi/Desktop/1337/fract-ol_42/mandatory",
+      "program": "/Users/oelharbi/Desktop/1337/fract-ol_42/mandatory/build/Debug/outDebug"
+    }
+  ]
+}
