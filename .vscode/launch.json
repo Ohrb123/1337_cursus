@@ -6,8 +6,8 @@
       "type": "lldb",
       "request": "launch",
       "args": [],
-      "cwd": "/Users/oelharbi/Desktop/1337/fract-ol_42/mandatory",
-      "program": "/Users/oelharbi/Desktop/1337/fract-ol_42/mandatory/build/Debug/outDebug"
+      "cwd": "/Users/oelharbi/Desktop/1337_c/ft_printf_42",
+      "program": "/Users/oelharbi/Desktop/1337_c/ft_printf_42/build/Debug/outDebug"
     }
   ]
 }
