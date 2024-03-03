@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   fractol_utils.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: oelharbi <oelharbi@student.42.fr>          +#+  +:+       +#+        */
+/*   By: ohrb <ohrb@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/26 17:02:49 by oelharbi          #+#    #+#             */
-/*   Updated: 2024/02/27 01:20:31 by oelharbi         ###   ########.fr       */
+/*   Updated: 2024/03/03 15:28:36 by ohrb             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -52,7 +52,7 @@ int	change_color(int i)
 	return ((red << 16) | (green << 8) | blue);
 }
 
-int	ft_pixels(t_complex cnst, t_fractol *fractol)
+int	ft_pixels(t_complex cnst, t_complex julia, t_fractol *fractol)
 {
 	t_complex	z;
 	int			i;
@@ -68,6 +68,8 @@ int	ft_pixels(t_complex cnst, t_fractol *fractol)
 		y = z.imagine * z.imagine;
 		if (x + y > 4)
 			return (change_color(i * 0.5));
+		else if (!ft_strcmp(fractol->av[1], "julia"))
+			return (change_color(ft_julia(cnst, julia, fractol)));
 		else
 			z.imagine = 2 * z.imagine * z.real + cnst.imagine;
 		z.real = x - y + cnst.real;
@@ -82,8 +84,13 @@ void	f_build(t_fractol *fractol)
 	int			y;
 	int			color;
 	t_complex	z;
-	t_complex	point;
+	t_complex	julia;
 
+	if (fractol->ac > 2)
+	{
+		julia.real = ft_atod(fractol->av[2]);
+		julia.imagine = ft_atod(fractol->av[3]);
+	}
 	y = 0;
 	while (y < WIDTH)
 	{
@@ -92,7 +99,7 @@ void	f_build(t_fractol *fractol)
 		{
 			z.real = (x - WIDTH / 2.0) * 4.0 / WIDTH * fractol->zoom;
 			z.imagine = (y - HEIGHT / 2.0) * 4.0 / HEIGHT * fractol->zoom;
-			color = ft_pixels(z, fractol);
+			color = ft_pixels(z, julia, fractol);
 			my_pixel_put(x, y, &fractol->image, color);
 			x++;
 		}

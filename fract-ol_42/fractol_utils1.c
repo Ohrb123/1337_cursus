@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   fractol_utils1.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: oelharbi <oelharbi@student.42.fr>          +#+  +:+       +#+        */
+/*   By: ohrb <ohrb@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/26 18:47:41 by oelharbi          #+#    #+#             */
-/*   Updated: 2024/02/27 01:41:43 by oelharbi         ###   ########.fr       */
+/*   Updated: 2024/03/03 15:06:15 by ohrb             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,7 +27,7 @@ void	my_pixel_put(int x, int y, t_image *image, int color)
 
 int	key_handle(int key, t_fractol *fractol)
 {
-	if (key == 53)
+	if (key == 65307) //Need to correct with mac key!!!
 	{
 		write(1, "Good bye!\n", 10);
 		f_exit(fractol);
@@ -43,9 +43,9 @@ int	zoom(int key, int x, int y, t_fractol *fractol)
 	(void)x;
 	(void)y;
 	if (key == 4)
-		fractol->zoom *= 0.85;
+		fractol->zoom *= 0.80; //need to be smooth
 	else if (key == 5)
-		fractol->zoom *= 1.10;
+		fractol->zoom *= 1.07; //need to be smooth
 	else
 		return (0);
 	f_build (fractol);
