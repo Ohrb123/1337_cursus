@@ -6,7 +6,7 @@
 /*   By: ohrb <ohrb@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/26 16:52:01 by oelharbi          #+#    #+#             */
-/*   Updated: 2024/03/03 16:54:26 by ohrb             ###   ########.fr       */
+/*   Updated: 2024/03/03 17:51:02 by ohrb             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -56,19 +56,14 @@ int			ft_strcmp(char *s1, char *s2);
 void		f_init(t_fractol *fractol);
 void		ft_error(void);
 void		f_build(t_fractol *fractol);
-int	ft_pixels(t_complex cnst, t_complex julia, t_fractol *fractol);
-double		new_dimensions(double axe, double new_min, double new_max, double old_min, double old_max);
-t_complex	ft_sum(t_complex z1, t_complex z2);
-t_complex	ft_squere(t_complex z);
-void		ft_data(t_fractol *fractol);
+int			ft_pixels(t_complex cnst, t_complex julia, t_fractol *fractol);
 void		my_pixel_put(int x, int y, t_image *image, int color);
 void		ft_events(t_fractol *fractol);
 int			zoom(int key, int x, int y, t_fractol *fractol);
 int			key_handle(int key, t_fractol *fractol);
-int ft_julia(t_complex cnst, t_complex julia, t_fractol *fractol);
-double  ft_atod(char *str);
-int check_decimal(char *str, int i);
-int ft_parse(char *str);
-
+int			ft_julia(t_complex cnst, t_complex julia, t_fractol *fractol);
+double		ft_atod(char *str);
+int			check_decimal(char *str, int i);
+int			ft_parse(char *str);
 
 #endif
