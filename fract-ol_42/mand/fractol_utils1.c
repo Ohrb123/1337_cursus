@@ -3,16 +3,17 @@
 /*                                                        :::      ::::::::   */
 /*   fractol_utils1.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ohrb <ohrb@student.42.fr>                  +#+  +:+       +#+        */
+/*   By: oelharbi <oelharbi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/26 18:47:41 by oelharbi          #+#    #+#             */
-/*   Updated: 2024/03/03 15:06:15 by ohrb             ###   ########.fr       */
+/*   Updated: 2024/03/09 18:35:35 by oelharbi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "fractol.h"
 int	f_exit(t_fractol *fractol)
 {
+	write(1, "Good bye!\n", 10);
 	mlx_destroy_window(fractol->init, fractol->window);
 	exit(0);
 }
@@ -27,11 +28,8 @@ void	my_pixel_put(int x, int y, t_image *image, int color)
 
 int	key_handle(int key, t_fractol *fractol)
 {
-	if (key == 65307) //Need to correct with mac key!!!
-	{
-		write(1, "Good bye!\n", 10);
+	if (key == 53) 
 		f_exit(fractol);
-	}
 	else
 		return (0);
 	f_build(fractol);
@@ -43,9 +41,9 @@ int	zoom(int key, int x, int y, t_fractol *fractol)
 	(void)x;
 	(void)y;
 	if (key == 4)
-		fractol->zoom *= 0.80; //need to be smooth
+		fractol->zoom *= 0.95;
 	else if (key == 5)
-		fractol->zoom *= 1.07; //need to be smooth
+		fractol->zoom *= 1.05;
 	else
 		return (0);
 	f_build (fractol);

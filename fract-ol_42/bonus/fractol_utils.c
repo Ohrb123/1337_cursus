@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   fractol_utils.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ohrb <ohrb@student.42.fr>                  +#+  +:+       +#+        */
+/*   By: oelharbi <oelharbi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/26 17:02:49 by oelharbi          #+#    #+#             */
-/*   Updated: 2024/03/03 15:28:36 by ohrb             ###   ########.fr       */
+/*   Updated: 2024/03/10 14:34:15 by oelharbi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,9 +46,9 @@ int	change_color(int i)
 	int	green;
 	int	blue;
 
-	red = (i * 11) % 256;
+	red = (i * 15) % 256;
 	green = (i * 5) % 256;
-	blue = (i * 13) % 256;
+	blue = (i * 10) % 256;
 	return ((red << 16) | (green << 8) | blue);
 }
 
@@ -67,11 +67,11 @@ int	ft_pixels(t_complex cnst, t_complex julia, t_fractol *fractol)
 		x = z.real * z.real;
 		y = z.imagine * z.imagine;
 		if (x + y > 4)
-			return (change_color(i * 0.5));
+			return (change_color(i * 0.6) + fractol->color);
 		else if (!ft_strcmp(fractol->av[1], "julia"))
-			return (change_color(ft_julia(cnst, julia, fractol)));
+			return (change_color(ft_julia(cnst, julia, fractol)) + fractol->color);
 		else
-			z.imagine = 2 * z.imagine * z.real + cnst.imagine;
+			z.imagine = 2.0 * z.imagine * z.real + cnst.imagine;
 		z.real = x - y + cnst.real;
 		i++;
 	}
@@ -97,8 +97,8 @@ void	f_build(t_fractol *fractol)
 		x = 0;
 		while (x < HEIGHT)
 		{
-			z.real = (x - WIDTH / 2.0) * 4.0 / WIDTH * fractol->zoom;
-			z.imagine = (y - HEIGHT / 2.0) * 4.0 / HEIGHT * fractol->zoom;
+			z.real = (x - WIDTH / 2.0) * 4.0 / WIDTH * fractol->zoom + fractol->right_left;
+			z.imagine = (y - HEIGHT / 2.0) * 4.0 / HEIGHT * fractol->zoom + fractol->up_down;
 			color = ft_pixels(z, julia, fractol);
 			my_pixel_put(x, y, &fractol->image, color);
 			x++;

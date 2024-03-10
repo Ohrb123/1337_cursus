@@ -3,17 +3,17 @@
 /*                                                        :::      ::::::::   */
 /*   fractol.h                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ohrb <ohrb@student.42.fr>                  +#+  +:+       +#+        */
+/*   By: oelharbi <oelharbi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/26 16:52:01 by oelharbi          #+#    #+#             */
-/*   Updated: 2024/03/03 17:51:02 by ohrb             ###   ########.fr       */
+/*   Updated: 2024/03/10 13:41:52 by oelharbi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef FRACTOL_H
 # define FRACTOL_H
 
-#include "minilibx_linux/mlx.h"
+#include "/usr/local/include/mlx.h"
 #include <unistd.h>
 #include <stdio.h>
 #include <stdlib.h>
@@ -46,6 +46,14 @@ typedef struct s_fractol
 	int		ac;
 	char	*error;
 	char	*parse;
+	double	right_left;
+	double	up_down;
+	int		color;
+	int		x_min;
+	int		x_max;
+	int		y_min;
+	int		y_max;
+	
 } t_fractol;
 
 #define 	HEIGHT	800

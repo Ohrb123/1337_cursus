@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   fractol.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ohrb <ohrb@student.42.fr>                  +#+  +:+       +#+        */
+/*   By: oelharbi <oelharbi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/17 21:47:15 by oelharbi          #+#    #+#             */
-/*   Updated: 2024/03/03 16:58:22 by ohrb             ###   ########.fr       */
+/*   Updated: 2024/03/10 14:27:13 by oelharbi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,10 +26,15 @@ int	main(int ac, char **av)
 {
 	t_fractol	fractol;
 
+	fractol.color = 0;
 	fractol.zoom = 1.0;
-	fractol.iter = 550;
+	fractol.iter = 70;
 	fractol.av = av;
 	fractol.ac = ac;
+	fractol.x_min = -2;
+	fractol.y_min = -2;
+	fractol.x_max = 2;
+	fractol.y_max = 2;
 	string(&fractol);
 	if ((ac == 2 && !ft_strcmp(av[1], "mandelbrot")) || (ac == 4 && !ft_strcmp(av[1], "julia") && ft_parse(av[2]) && ft_parse(av[3])))
 	{
