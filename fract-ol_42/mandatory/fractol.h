@@ -6,14 +6,14 @@
 /*   By: oelharbi <oelharbi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/26 16:52:01 by oelharbi          #+#    #+#             */
-/*   Updated: 2024/03/25 18:03:06 by oelharbi         ###   ########.fr       */
+/*   Updated: 2024/03/25 22:09:40 by oelharbi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef FRACTOL_H
 # define FRACTOL_H
 
-# include "/usr/local/include/mlx.h"
+# include "mlx.h"
 # include <unistd.h>
 # include <stdio.h>
 # include <stdlib.h>

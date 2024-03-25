@@ -1,15 +1,15 @@
 {
   "files.associations": {
-	"mlx.h": "c",
-	"__bit_reference": "c",
-	"__string": "c",
-	"algorithm": "c",
-	"ios": "c",
-	"string": "c",
-	"type_traits": "c",
-	"sstream": "c",
-	"fractol_bonus.h": "c"
-},
+    "mlx.h": "c",
+    "__bit_reference": "c",
+    "__string": "c",
+    "algorithm": "c",
+    "ios": "c",
+    "string": "c",
+    "type_traits": "c",
+    "sstream": "c",
+    "fractol_bonus.h": "c"
+  },
   "C_Cpp_Runner.cCompilerPath": "clang",
   "C_Cpp_Runner.cppCompilerPath": "clang++",
   "C_Cpp_Runner.debuggerPath": "lldb",
