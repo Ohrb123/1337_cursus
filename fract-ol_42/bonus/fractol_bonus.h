@@ -1,28 +1,28 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   fractol.h                                          :+:      :+:    :+:   */
+/*   fractol_bonus.h                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: oelharbi <oelharbi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/26 16:52:01 by oelharbi          #+#    #+#             */
-/*   Updated: 2024/03/10 13:41:52 by oelharbi         ###   ########.fr       */
+/*   Updated: 2024/03/25 18:10:14 by oelharbi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef FRACTOL_H
-# define FRACTOL_H
+#ifndef FRACTOL_BONUS_H
+# define FRACTOL_BONUS_H
 
-#include "/usr/local/include/mlx.h"
-#include <unistd.h>
-#include <stdio.h>
-#include <stdlib.h>
+# include "/usr/local/include/mlx.h"
+# include <unistd.h>
+# include <stdio.h>
+# include <stdlib.h>
 
 typedef struct s_complex
 {
-	double real;
-	double imagine;
-} t_complex;
+	double	real;
+	double	imagine;
+}	t_complex;
 
 typedef struct s_image
 {
@@ -31,7 +31,13 @@ typedef struct s_image
 	int		bits;
 	int		end;
 	int		size_line;
-} t_image;
+}	t_image;
+
+typedef enum s_bool
+{
+	false,
+	true
+}	t_bool;
 
 typedef struct s_fractol
 {
@@ -49,15 +55,30 @@ typedef struct s_fractol
 	double	right_left;
 	double	up_down;
 	int		color;
-	int		x_min;
-	int		x_max;
-	int		y_min;
-	int		y_max;
-	
-} t_fractol;
+	double	x_min;
+	double	x_max;
+	double	y_min;
+	double	y_max;
+	double	arrow;
+	int		y;
+	int		x;
+	t_bool	help;
+	int		m_color;
+}	t_fractol;
 
-#define 	HEIGHT	800
-#define 	WIDTH	800
+typedef struct s_atod
+{
+	double	res;
+	double	frac;
+	int		i;
+	int		sign;
+	char	*error;
+	int		j;
+	int		count;
+}	t_atod;
+
+# define HEIGHT 600
+# define WIDTH 600
 
 int			change_color(int i);
 int			ft_strcmp(char *s1, char *s2);
@@ -73,5 +94,12 @@ int			ft_julia(t_complex cnst, t_complex julia, t_fractol *fractol);
 double		ft_atod(char *str);
 int			check_decimal(char *str, int i);
 int			ft_parse(char *str);
+void		julia_set(t_fractol *fractol, t_complex julia);
+void		zoom_in(t_fractol *fractol, double x_axis, double y_axis);
+int			f_exit(t_fractol *fractol);
+void		data_init(t_fractol *fractol, int ac, char **av);
+double		ft_abs(double n);
+void		ft_help(t_fractol *fractol);
+void		help_drawer(t_fractol *fractol);
 
 #endif
